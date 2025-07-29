@@ -3,7 +3,7 @@ import MainForm from './components/MainForm';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-white to-sky-300">
+    <div className="min-h-screen bg-sky-200">
       <Header />
       <MainForm />
     </div>
