@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Route must be a valid function (router)
+//comment
 app.use('/api', savingsRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
