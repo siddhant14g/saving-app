@@ -13,13 +13,6 @@ function MainForm() {
   const API = 'https://saving-app-backend.vercel.app/api';
 
 
-  const sendWhatsAppMessage = (msg) => {
-    const encodedMsg = encodeURIComponent(msg);
-    const url = `https://wa.me/?text=${encodedMsg}`;
-    window.open(url, '_blank');
-  };
-
-
   const fetchTotal = async () => {
     const res = await axios.get(`${API}/total`);
     setTotal(res.data.total);
@@ -39,7 +32,6 @@ function MainForm() {
     e.preventDefault();
     if (!name || !amount) return;
     await axios.post(`${API}/save`, { name, amount: Number(amount) });
-    sendWhatsAppMessage(`${name} deposited ₹${amount} Total Saving: ₹${total+ Number(amount)}`);
     setAmount('');
     fetchTotal();
   };
@@ -123,7 +115,6 @@ function MainForm() {
               name,
               amount: -Math.abs(withdrawAmt),
             });
-            sendWhatsAppMessage(`${name} withdrew ₹${withdrawAmount} Total Saving: ₹${total - withdrawAmt}`);
 
             setWithdrawAmount('');
             fetchTotal();
