@@ -11,7 +11,7 @@ function MainForm() {
   const [withdrawAmount, setWithdrawAmount] = useState('');
 
   const API = 'https://saving-app-backend.vercel.app/api';
-  
+
 
   const fetchTotal = async () => {
     const res = await axios.get(`${API}/total`);
@@ -93,12 +93,27 @@ function MainForm() {
         onSubmit={async (e) => {
           e.preventDefault();
           try {
-            if (!withdrawAmount || isNaN(withdrawAmount)) return alert('Enter valid amount');
-            if (!name) return alert('Please select a name');
+            const withdrawAmt = Number(withdrawAmount);
+
+            if (!withdrawAmount || isNaN(withdrawAmt) || withdrawAmt <= 0) {
+              return alert('Enter a valid withdrawal amount greater than 0');
+            }
+
+            if (!name) {
+              return alert('Please select a name');
+            }
+
+            if (total <= 0) {
+              return alert('Cannot withdraw. Total savings is ₹0.');
+            }
+
+            if (withdrawAmt > total) {
+              return alert(`Cannot withdraw ₹${withdrawAmt}. Only ₹${total} is available.`);
+            }
 
             await axios.post(`${API}/save`, {
               name,
-              amount: -Math.abs(Number(withdrawAmount)),
+              amount: -Math.abs(withdrawAmt),
             });
 
             setWithdrawAmount('');
@@ -108,6 +123,7 @@ function MainForm() {
             alert('Withdraw failed. Check console.');
           }
         }}
+
         className="space-y-2 bg-white p-4 rounded-xl shadow-md"
       >
         <label className="font-semibold text-sm">Withdraw Amount (₹):</label>
