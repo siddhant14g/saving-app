@@ -10,7 +10,7 @@ function MainForm() {
   const [showHistory, setShowHistory] = useState(false);
   const [withdrawAmount, setWithdrawAmount] = useState('');
 
-  const API = 'http://localhost:5000/api';
+  const API = 'https://saving-app-backend.vercel.app/api';
   
 
   const fetchTotal = async () => {
