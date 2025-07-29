@@ -11,6 +11,7 @@ function MainForm() {
   const [withdrawAmount, setWithdrawAmount] = useState('');
 
   const API = 'https://saving-app-backend.vercel.app/api';
+  // const API = 'http://localhost:5000/api'; // Use this for local development
 
 
   const fetchTotal = async () => {
