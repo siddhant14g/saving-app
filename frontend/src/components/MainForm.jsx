@@ -40,6 +40,7 @@ function MainForm() {
   return (
     <div className="min-h-screen p-4 w-full max-w-md mx-auto space-y-6 bg-sky-200">
       {/* Total and Message */}
+    
       <div className="text-center text-xl font-bold">
         💵 Total Saved: ₹{total}
         {message && <p className="text-green-600 mt-2 text-lg">{message}</p>}
