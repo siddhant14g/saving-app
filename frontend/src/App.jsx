@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const pinTimestamp = localStorage.getItem('pinTimestamp');
     const now = Date.now();
-    if (pinTimestamp && now - parseInt(pinTimestamp) < 60 * 15 * 1000) {
+    if (pinTimestamp && now - parseInt(pinTimestamp) < 60 * 10 * 1000) {
       setIsAuthenticated(true); // If within 1 hour, grant access
     }
   }, []);

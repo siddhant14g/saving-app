@@ -6,9 +6,9 @@ function PinScreen({ onSuccess }) {
   const [isBlocked, setIsBlocked] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
 
-  const correctPin = '1234';
+  const correctPin = '1302';
   const ATTEMPT_LIMIT = 5;
-  const BLOCK_DURATION_MS = 15 * 60 * 1000; // 15 minutes
+  const BLOCK_DURATION_MS = 10 * 60 * 1000; // 15 minutes
 
   useEffect(() => {
     const storedAttempts = parseInt(localStorage.getItem('pinAttempts')) || 0;
@@ -71,7 +71,7 @@ function PinScreen({ onSuccess }) {
       localStorage.setItem('pinAttempts', newAttempts);
       setAttemptsLeft(Math.max(ATTEMPT_LIMIT - newAttempts, 0));
       setPin('');
-      alert('Incorrect PIN.');
+      alert('Incorrect PIN. Try again.'); // Notify user of incorrect PIN
     }
   };
 
@@ -111,7 +111,7 @@ function PinScreen({ onSuccess }) {
             >
               Unlock
             </button>
-            <p className="text-sm text-gray-600">Attempts left: {attemptsLeft}</p>
+            <p className="font-semibold text-sm text-green-600">Attempts left: {attemptsLeft}</p>
           </>
         )}
       </form>
