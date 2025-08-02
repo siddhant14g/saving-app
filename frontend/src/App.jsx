@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-sky-200">
+    <div className="min-h-screen bg-rose-200">
       <Header />
       {isAuthenticated ? (
         <>

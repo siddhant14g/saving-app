@@ -38,7 +38,7 @@ function MainForm() {
   };
 
   return (
-    <div className="min-h-screen p-4 w-full max-w-md mx-auto space-y-6 bg-sky-200">
+    <div className="min-h-screen p-4 w-full max-w-md mx-auto space-y-6 bg-rose-300">
       {/* Total and Message */}
     
       <div className="text-center text-xl font-bold">
