@@ -82,7 +82,7 @@ function PinScreen({ onSuccess }) {
   };
 
   return (
-    <div className="mt-47 flex items-center justify-center bg-sky-200 bg-opacity-40">
+    <div className="mt-47 flex items-center justify-center bg-rose-200 bg-opacity-40">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-xl shadow-md space-y-4 w-full max-w-xs text-center"
